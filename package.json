@@ -1,0 +1,22 @@
+{
+  "name": "9th-challenge---readme-gen",
+  "version": "1.0.0",
+  "description": "Professional README.md generator application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csabbah/pro-readme-generator.git"
+  },
+  "keywords": [
+    "node.js"
+  ],
+  "author": "Csabbah",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/csabbah/pro-readme-generator/issues"
+  },
+  "homepage": "https://github.com/csabbah/pro-readme-generator#readme"
+}
