@@ -9,6 +9,7 @@ module.exports = (readMeData) => {
     test,
     github,
     email,
+    licenses,
   } = readMeData;
   return `# ${title}
 
@@ -39,6 +40,7 @@ ${contribution}
 ${test}
 
 ## License
+${licenses}
 
 ## Questions
 https://github.com/${github} 

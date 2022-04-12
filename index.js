@@ -87,6 +87,12 @@ const promptReadme = () => {
       },
     },
     {
+      type: 'checkbox',
+      name: 'licenses',
+      message: 'Choose the license or licenses for this application:',
+      choices: ['MIT', 'Mozilla', 'ODC', 'Perl', 'SIL', 'IBM'],
+    },
+    {
       type: 'input',
       name: 'github',
       message: 'Please provide your github username (Required)',
@@ -119,6 +125,7 @@ const promptReadme = () => {
 // Execute inquirer then return the responses from the prompts
 // (The object itself can be extracted using the first line below)
 promptReadme().then((readMeData) => {
+  console.log(readMeData);
   // Then we pass the data into the function that generates the content
   const readMeContent = generateReadMe(readMeData);
   // Afterwards, generate the README file using the above generated content
