@@ -89,7 +89,7 @@ const promptReadme = () => {
     {
       type: 'checkbox',
       name: 'licenses',
-      message: 'Choose the license or licenses for this application:',
+      message: 'Choose the license(s) for this application: (Min 1 required)',
       choices: ['MIT', 'Mozilla', 'Perl', 'SIL', 'IBM'],
       validate: (choicePicked) => {
         if (choicePicked.length > 0) {
