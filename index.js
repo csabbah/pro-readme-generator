@@ -4,9 +4,7 @@ const generateReadMe = require('./utils/generateReadMe');
 const inquirer = require('inquirer');
 
 const promptReadme = () => {
-  // IMPORTANT NOTE:
-  // Key = name
-  // The response = the value
+  // IMPORTANT NOTE TO SELF: Key = name / The response = the value
   return inquirer.prompt([
     {
       type: 'input',
@@ -129,7 +127,6 @@ const promptReadme = () => {
   ]);
 };
 
-// Execute inquirer then return the responses from the prompts
 // (The object 'readMeData' can be extracted using the first line below)
 promptReadme().then((readMeData) => {
   console.log(readMeData);
