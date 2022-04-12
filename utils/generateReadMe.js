@@ -45,7 +45,7 @@ ${
 - [Tests](#Tests)
 - [${
     // Update link label according to how many licenses were chosen
-    licenses.length > 1 ? '#Licenses' : '#License'
+    licenses.length > 1 ? 'Licenses' : 'License'
   }](${licenses.length > 1 ? '#Licenses' : '#License'})
 - [Questions](#Questions)
 
