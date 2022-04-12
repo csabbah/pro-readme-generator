@@ -91,6 +91,14 @@ const promptReadme = () => {
       name: 'licenses',
       message: 'Choose the license or licenses for this application:',
       choices: ['MIT', 'Mozilla', 'ODC', 'Perl', 'SIL', 'IBM'],
+      validate: (choicePicked) => {
+        if (choicePicked.length > 0) {
+          return true;
+        } else {
+          choicePicked[0] = 'No license';
+          return true;
+        }
+      },
     },
     {
       type: 'input',
@@ -105,7 +113,6 @@ const promptReadme = () => {
         }
       },
     },
-
     {
       type: 'input',
       name: 'email',
