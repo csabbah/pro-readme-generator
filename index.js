@@ -3,8 +3,9 @@ const fs = require('fs');
 const generateReadMe = require('./utils/generateReadMe');
 const inquirer = require('inquirer');
 
+// Collect a set of responses in order to generate the README.md file
 const promptReadme = () => {
-  // IMPORTANT NOTE TO SELF: Key = name / The response = the value
+  // Key = name / The response = the value
   return inquirer.prompt([
     {
       type: 'input',
@@ -90,9 +91,11 @@ const promptReadme = () => {
       message: 'Choose the license(s) for this application: (Min 1 required)',
       choices: ['MIT', 'Mozilla', 'Perl', 'SIL', 'IBM'],
       validate: (choicePicked) => {
+        // If a license was chosen return true else...
         if (choicePicked.length > 0) {
           return true;
         } else {
+          // If no license is picked, choose the first one and rename to 'No license'
           choicePicked[0] = 'No license';
           return true;
         }
@@ -135,6 +138,7 @@ promptReadme().then((readMeData) => {
   // Afterwards, generate the README file using the above generated content
   fs.writeFile('./README.md', readMeContent, (err) => {
     if (err) throw new Error(err);
+    // Then alert the user the file has been successfully generated
     console.log(
       'Your README has been created! Check out README.md in this directory to see it!'
     );
