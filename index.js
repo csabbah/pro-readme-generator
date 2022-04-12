@@ -117,11 +117,11 @@ const promptReadme = () => {
 };
 
 // Execute inquirer then return the responses from the prompts
-// (The object itself can be extracted using the first line)
-promptReadme().then((readmeData) => {
+// (The object itself can be extracted using the first line below)
+promptReadme().then((readMeData) => {
   // Then we pass the data into the function that generates the content
-  const readMeContent = generateReadMe(readmeData);
-  // Afterwards, generate the using the above generated content
+  const readMeContent = generateReadMe(readMeData);
+  // Afterwards, generate the README file using the above generated content
   fs.writeFile('./README.md', readMeContent, (err) => {
     if (err) throw new Error(err);
     console.log(

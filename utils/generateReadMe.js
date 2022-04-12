@@ -1,5 +1,5 @@
 // Using the data from index.js, generate the README.md content
-module.exports = (readmeData) => {
+module.exports = (readMeData) => {
   const {
     title,
     description,
@@ -9,7 +9,7 @@ module.exports = (readmeData) => {
     test,
     github,
     email,
-  } = readmeData;
+  } = readMeData;
   return `# ${title}
 
 ## Table of Contents
