@@ -49,7 +49,7 @@ ${
   }](${licenses.length > 1 ? '#Licenses' : '#License'})
 - [Questions](#Questions)
 
-#
+##
 
 ## Description
 ${description} 
@@ -81,7 +81,12 @@ ${
   licenses.length > 1
     ? licenses
         .map((item) => {
-          return `* ${item}\n`;
+          // For the last item of the current licenses array, do not include the extra space ('\n')
+          if (licenses.indexOf(item) == licenses.length - 1) {
+            return `* ${item}`;
+          } else {
+            return `* ${item}\n`;
+          }
         })
         .join('')
     : licenses
