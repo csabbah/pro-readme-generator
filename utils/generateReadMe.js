@@ -11,6 +11,7 @@ module.exports = (readMeData) => {
     email,
     licenses,
   } = readMeData;
+
   return `# ${title}
 
 ## Table of Contents
@@ -40,7 +41,15 @@ ${contribution}
 ${test}
 
 ## License
-${licenses}
+${
+  licenses.length > 1
+    ? licenses
+        .map((item) => {
+          return `* ${item}\n\n`;
+        })
+        .join('')
+    : licenses
+}
 
 ## Questions
 https://github.com/${github} 

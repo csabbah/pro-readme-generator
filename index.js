@@ -130,7 +130,7 @@ const promptReadme = () => {
 };
 
 // Execute inquirer then return the responses from the prompts
-// (The object itself can be extracted using the first line below)
+// (The object 'readMeData' can be extracted using the first line below)
 promptReadme().then((readMeData) => {
   console.log(readMeData);
   // Then we pass the data into the function that generates the content
