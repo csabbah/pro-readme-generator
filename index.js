@@ -3,9 +3,8 @@ const fs = require('fs');
 const generateReadMe = require('./utils/generateReadMe');
 const inquirer = require('inquirer');
 
-// Collect a set of responses in order to generate the README.md file
-const promptReadme = () => {
-  // Key = name / The response = the value
+// The first set of prompts are general, this includes, name, email, title and project description
+const promptBrief = () => {
   return inquirer.prompt([
     {
       type: 'input',
@@ -33,6 +32,38 @@ const promptReadme = () => {
         }
       },
     },
+    {
+      type: 'input',
+      name: 'github',
+      message: 'Please provide your github username (Required)',
+      validate: (githubInput) => {
+        if (githubInput) {
+          return true;
+        } else {
+          console.log('You need to enter a github username!');
+          return false;
+        }
+      },
+    },
+    {
+      type: 'input',
+      name: 'email',
+      message: 'Please provide your email address (Required)',
+      validate: (emailInput) => {
+        if (emailInput) {
+          return true;
+        } else {
+          console.log('You need to enter a email address!');
+          return false;
+        }
+      },
+    },
+  ]);
+};
+// The second set of prompts are the more technical and detailed, i.e. Usage info, Installation info, Licenses, etc
+const promptDetailed = () => {
+  // Key = name / The response = the value
+  return inquirer.prompt([
     {
       type: 'input',
       name: 'installation',
@@ -101,46 +132,21 @@ const promptReadme = () => {
         }
       },
     },
-    {
-      type: 'input',
-      name: 'github',
-      message: 'Please provide your github username (Required)',
-      validate: (githubInput) => {
-        if (githubInput) {
-          return true;
-        } else {
-          console.log('You need to enter a github username!');
-          return false;
-        }
-      },
-    },
-    {
-      type: 'input',
-      name: 'email',
-      message: 'Please provide your email address (Required)',
-      validate: (emailInput) => {
-        if (emailInput) {
-          return true;
-        } else {
-          console.log('You need to enter a email address!');
-          return false;
-        }
-      },
-    },
   ]);
 };
 
-// (The object 'readMeData' can be extracted using the first line below)
-promptReadme().then((readMeData) => {
-  console.log(readMeData);
-  // Then we pass the data into the function that generates the content
-  const readMeContent = generateReadMe(readMeData);
-  // Afterwards, generate the README file using the above generated content
-  fs.writeFile('./README.md', readMeContent, (err) => {
-    if (err) throw new Error(err);
-    // Then alert the user the file has been successfully generated
-    console.log(
-      'Your README has been created! Check out README.md in this directory to see it!'
-    );
+// (The objects from each prompts can be extracted by first executing prompt function then using an arrow function)
+promptBrief().then((briefData) => {
+  promptDetailed().then((detailedData) => {
+    // Then we pass the data into the function that generates the content
+    readMeContent = generateReadMe(detailedData, briefData);
+    // Afterwards, generate the README file using the above generated content
+    fs.writeFile('./utils/README.md', readMeContent, (err) => {
+      if (err) throw new Error(err);
+      // Then alert the user the file has been successfully generated
+      console.log(
+        'Your README has been created! Check out README.md in this directory to see it!'
+      );
+    });
   });
 });
