@@ -17,8 +17,8 @@ This application will generate a professional README.md file using node.js based
 
 1. Clone the main project then open up the project folder in your text editor.
 2. Run 'npm install' in terminal to install node_modules with all dependencies.
-3. Then make sure you are in the main folder using the 'cd' command if needed.
-4. Type in 'node index.js' or 'node index' to execute the application and load up the chain of prompts (questions).
+3. Make sure you are in the main project folder using the 'cd' command.
+4. Then type in 'node index.js' or 'node index' to execute the application and load up the chain of prompts (questions).
 5. Answer all the prompts and once completed, your personal README.md file will be created.
 
 ## Links
